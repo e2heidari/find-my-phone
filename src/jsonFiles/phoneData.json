@@ -1,0 +1,58 @@
+[
+    {
+      "brandName": "Samsung Galaxy S20 Ultra 5G",
+      "cameraDayScore": "128",
+      "cameraNightScore": "56",
+      "cameraSelfieScore": "100",
+      "cameraVideoScore": "106",
+      "cameraZoomScore": "88",
+      "batteryScore": "87",
+      "audioPlaybackQualityScore": "71",
+      "audioRecordingQualityScore": "65",
+      "displayScore": "87",
+      "performanceScore": "415976",
+      "image": ""
+    },
+    {
+      "brandName": "Apple iPhone 12",
+      "cameraDayScore": "132",
+      "cameraNightScore": "59",
+      "cameraSelfieScore": "98",
+      "cameraVideoScore": "106",
+      "cameraZoomScore": "41",
+      "batteryScore": "84",
+      "audioPlaybackQualityScore": "73",
+      "audioRecordingQualityScore": "73",
+      "displayScore": "85",
+      "performanceScore": "567674",
+      "image": ""
+    },
+    {
+      "brandName": "Apple iPhone 12 Pro",
+      "cameraDayScore": "135",
+      "cameraNightScore": "59",
+      "cameraSelfieScore": "98",
+      "cameraVideoScore": "112",
+      "cameraZoomScore": "66",
+      "batteryScore": "81",
+      "audioPlaybackQualityScore": "73",
+      "audioRecordingQualityScore": "73",
+      "displayScore": "87",
+      "performanceScore": "596244",
+      "image": ""
+    },
+    {
+      "brandName": "Apple iPhone 12 mini",
+      "cameraDayScore": "132",
+      "cameraNightScore": "59",
+      "cameraSelfieScore": "98",
+      "cameraVideoScore": "112",
+      "cameraZoomScore": "41",
+      "batteryScore": "69",
+      "audioPlaybackQualityScore": "73",
+      "audioRecordingQualityScore": "73",
+      "displayScore": "87",
+      "performanceScore": "589616",
+      "image": ""
+    }
+  ]
