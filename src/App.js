@@ -1,43 +1,51 @@
-import "./App.css";
-import questions from "./jsonFiles/question.json";
-import Question from "./components/Question";
-import { useState } from "react";
+import Phone from "./components/Phone"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
-  const count = questions.length;
-  const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState([]);
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Question
-          question={questions[current].question}
-          value={answers[current] || ""}
-          onChange={(e) => {
-            const newAnswers = [...answers];
-            newAnswers[current] = e.target.value;
-            setAnswers(newAnswers);
-          }}
-        />
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Smartphones</Link>
+            </li>
+            <li>
+              <Link to="/cameras">Cameras</Link>
+            </li>
+            <li>
+              <Link to="/speakers">Speakers</Link>
+            </li>
+          </ul>
+        </nav>
 
-        <div>
-          <button
-            onClick={() => (current - 1 >= 0 ? setCurrent(current - 1) : null)}
-          >
-            Previous
-          </button>
-          Question {current + 1}
-          <button
-            onClick={() =>
-              current + 1 < count ? setCurrent(current + 1) : null
-            }
-          >
-            Next
-          </button>
-        </div>
-      </header>
-    </div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/cameras">
+            <Cameras />
+          </Route>
+          <Route path="/speakers">
+            <Speakers />
+          </Route>
+          <Route path="/">
+            <Phone />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+function Cameras() {
+  return <h2>Cameras</h2>;
+}
+
+function Speakers() {
+  return <h2>Speakers</h2>;
+}
