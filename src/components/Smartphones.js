@@ -4,7 +4,7 @@ import Question from "./Question";
 import { useState } from "react";
 import React from "react";
 
-function Phone() {
+function Smartphones() {
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -41,4 +41,4 @@ function Phone() {
   );
 }
 
-export default Phone;
+export default Smartphones;

@@ -1,10 +1,5 @@
-import Phone from "./components/Phone"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import Smartphones from "./components/Smartphones";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function App() {
   return (
@@ -34,7 +29,7 @@ export default function App() {
             <Speakers />
           </Route>
           <Route path="/">
-            <Phone />
+            <Smartphones />
           </Route>
         </Switch>
       </div>

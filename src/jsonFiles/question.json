@@ -1,5 +1,5 @@
 [
-    { "question": "What is your name?" },
+    { "question": "How much are you consider for down payment? (example: 200)" },
     { "question": "What is your city?" },
     { "question": "How old are you?" }
   ]
