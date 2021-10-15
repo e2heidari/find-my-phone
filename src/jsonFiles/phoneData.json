@@ -1,6 +1,7 @@
 [
     {
       "brandName": "Samsung Galaxy S20 Ultra 5G",
+      "OS":"Android",
       "cameraDayScore": "128",
       "cameraNightScore": "56",
       "cameraSelfieScore": "100",
@@ -15,6 +16,7 @@
     },
     {
       "brandName": "Apple iPhone 12",
+      "OS":"iOS",
       "cameraDayScore": "132",
       "cameraNightScore": "59",
       "cameraSelfieScore": "98",
@@ -29,6 +31,7 @@
     },
     {
       "brandName": "Apple iPhone 12 Pro",
+      "OS":"iOS",
       "cameraDayScore": "135",
       "cameraNightScore": "59",
       "cameraSelfieScore": "98",
@@ -43,15 +46,16 @@
     },
     {
       "brandName": "Apple iPhone 12 mini",
+      "OS":"iOS",
       "cameraDayScore": "132",
       "cameraNightScore": "59",
       "cameraSelfieScore": "98",
       "cameraVideoScore": "112",
       "cameraZoomScore": "41",
-      "batteryScore": "69",
+      "batteryScore": "59",
       "audioPlaybackQualityScore": "73",
       "audioRecordingQualityScore": "73",
-      "displayScore": "87",
+      "displayScore": "85",
       "performanceScore": "589616",
       "image": ""
     }

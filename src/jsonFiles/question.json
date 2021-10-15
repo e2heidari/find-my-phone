@@ -1,5 +1,5 @@
 [
-    { "question": "How much are you consider for down payment? (example: 200)" },
-    { "question": "What is your city?" },
-    { "question": "How old are you?" }
+    { "question": "What's your next smartphone price range?" },
+    { "question": "Are you fan of social media?" },
+    { "question": "Are you fan of games on your phone?" }
   ]
