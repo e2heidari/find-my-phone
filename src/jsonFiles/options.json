@@ -1,5 +1,5 @@
 [
-    {"first":"Low-range", "second":"Mid-range", "third":"High-range"},
-    {"first":"Yes", "second":"No"},
-    {"first":"Yes", "second":"No"}
+    {"id":"1","selections":["Low-range","Mid-range", "High-range"], "commonName":"price"},
+    {"id":"2","selections":["Yes","No"], "commonName":"socialMedia"},
+    {"id":"3","selections":["Yes","No"], "commonName":"game"}
 ]

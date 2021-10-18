@@ -1,6 +1,8 @@
 import "../App.css";
 import questions from "../jsonFiles/question.json";
+import options from "../jsonFiles/options.json";
 import Question from "./Question";
+import Option from "./Option";
 import { useState } from "react";
 import React from "react";
 
@@ -8,18 +10,23 @@ function Smartphones() {
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const optionComponent = options[current].selections.map((item) => (
+    <Option
+      key={options.id}
+      commonName={options[current].commonName}
+      option={item}
+      onChange={(e) => {
+        const newAnswers = [...answers];
+        newAnswers[current] = e.target.value;
+        setAnswers(newAnswers);
+      }}
+    />
+  ));
   return (
     <div className="App">
       <header className="App-header">
-        <Question
-          question={questions[current].question}
-          value={answers[current] || ""}
-          onChange={(e) => {
-            const newAnswers = [...answers];
-            newAnswers[current] = e.target.value;
-            setAnswers(newAnswers);
-          }}
-        />
+        <Question question={questions[current].question} />
+        <form>{optionComponent}</form>
 
         <div>
           <button
