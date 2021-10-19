@@ -12,7 +12,7 @@ function Smartphones() {
   const [answers, setAnswers] = useState([]);
   const optionComponent = options[current].selections.map((item) => (
     <Option
-      key={options.id}
+      key={options[current].id + item}
       commonName={options[current].commonName}
       option={item}
       onChange={(e) => {
@@ -22,6 +22,7 @@ function Smartphones() {
       }}
     />
   ));
+  console.log(answers);
   return (
     <div className="App">
       <header className="App-header">
