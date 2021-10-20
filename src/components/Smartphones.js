@@ -36,13 +36,17 @@ function Smartphones() {
             Previous
           </button>
           Question {current + 1}
-          <button
-            onClick={() =>
-              current + 1 < count ? setCurrent(current + 1) : null
-            }
-          >
-            Next
-          </button>
+          {count != current + 1 ? (
+            <button
+              onClick={() =>
+                current + 1 < count ? setCurrent(current + 1) : null
+              }
+            >
+              Next
+            </button>
+          ) : (
+            <button>Submit</button>
+          )}
         </div>
       </header>
     </div>
