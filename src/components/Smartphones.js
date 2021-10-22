@@ -5,11 +5,14 @@ import Question from "./Question";
 import Option from "./Option";
 import { useState } from "react";
 import React from "react";
+import phoneData from "../jsonFiles/phoneData.json";
+import { result } from "lodash";
 
 function Smartphones() {
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [result, setResult] = useState();
   const optionComponent = options[current].selections.map((item) => (
     <Option
       key={options[current].id + item}
@@ -22,13 +25,19 @@ function Smartphones() {
       }}
     />
   ));
-  console.log(answers);
+  const choose = () => {
+    if (answers[0] === "High-range") {
+      const mainFilter = phoneData.filter((goal) => goal.priceRange === "1");
+      setResult(mainFilter);
+      console.log(result);
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <Question question={questions[current].question} />
         <form>{optionComponent}</form>
-
         <div>
           <button
             onClick={() => (current - 1 >= 0 ? setCurrent(current - 1) : null)}
@@ -36,7 +45,7 @@ function Smartphones() {
             Previous
           </button>
           Question {current + 1}
-          {count != current + 1 ? (
+          {count !== current + 1 ? (
             <button
               onClick={() =>
                 current + 1 < count ? setCurrent(current + 1) : null
@@ -45,7 +54,7 @@ function Smartphones() {
               Next
             </button>
           ) : (
-            <button>Submit</button>
+            <button onClick={choose}>Submit</button>
           )}
         </div>
       </header>

@@ -1,5 +1,6 @@
 [
     {
+      "priceRange":"1",
       "brandName": "Samsung Galaxy S20 Ultra 5G",
       "OS":"Android",
       "cameraDayScore": "128",
@@ -15,6 +16,7 @@
       "image": ""
     },
     {
+      "priceRange":"1",
       "brandName": "Apple iPhone 12",
       "OS":"iOS",
       "cameraDayScore": "132",
@@ -30,6 +32,7 @@
       "image": ""
     },
     {
+      "priceRange":"1",
       "brandName": "Apple iPhone 12 Pro",
       "OS":"iOS",
       "cameraDayScore": "135",
@@ -45,6 +48,7 @@
       "image": ""
     },
     {
+      "priceRange":"2",
       "brandName": "Apple iPhone 12 mini",
       "OS":"iOS",
       "cameraDayScore": "132",
