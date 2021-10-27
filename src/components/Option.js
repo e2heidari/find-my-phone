@@ -1,4 +1,4 @@
-const Option = ({ commonName, option, onChange }) => {
+const Option = ({ commonName, option, onChange, checked }) => {
   return (
     <div>
       <input
@@ -7,8 +7,9 @@ const Option = ({ commonName, option, onChange }) => {
         id={option}
         onChange={onChange}
         name={commonName}
+        checked={checked}
       />
-      <label for={option}>{option}</label>
+      <label htmlFor={option}>{option}</label>
     </div>
   );
 };

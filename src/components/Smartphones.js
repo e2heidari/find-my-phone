@@ -6,30 +6,44 @@ import Option from "./Option";
 import { useState } from "react";
 import React from "react";
 import phoneData from "../jsonFiles/phoneData.json";
-import { result } from "lodash";
 
 function Smartphones() {
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([]);
+  const [checked, setChecked] = useState(false);
   const optionComponent = options[current].selections.map((item) => (
     <Option
       key={options[current].id + item}
       commonName={options[current].commonName}
       option={item}
+      checked={checked}
       onChange={(e) => {
+        setChecked(true);
         const newAnswers = [...answers];
-        newAnswers[current] = e.target.value;
+        if (checked === false) {
+          newAnswers[current] = e.target.value;
+        } else {
+          e.target.value = newAnswers[current];
+        }
         setAnswers(newAnswers);
       }}
     />
   ));
+  // useEffect(() => {
+  //   window.localStorage.setItem(current, JSON.stringify(answers[current]));
+  //   console.log(current, answers[current]);
+  // }, [answers]);
+  // () => {
+  //   const saved = window.localStorage.getItem("current");
+  //   const previousValue = JSON.parse(saved);
+  //   return previousValue || "";
+  // }
   const choose = () => {
     if (answers[0] === "High-range") {
-      const mainFilter = phoneData.filter((goal) => goal.priceRange === "1");
-      setResult(mainFilter);
-      console.log(result);
+      const newMainFilter = phoneData.filter((goal) => goal.priceRange === "1");
+      setResult(newMainFilter);
     }
   };
 
@@ -61,5 +75,4 @@ function Smartphones() {
     </div>
   );
 }
-
 export default Smartphones;
