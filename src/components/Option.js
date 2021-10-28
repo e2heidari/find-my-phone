@@ -1,15 +1,15 @@
-const Option = ({ commonName, option, onChange, checked }) => {
+const Option = ({ commonName, value, onChange, checked }) => {
   return (
     <div>
       <input
         type="radio"
-        value={option}
-        id={option}
+        value={value}
+        id={value}
+        checked={checked}
         onChange={onChange}
         name={commonName}
-        checked={checked}
       />
-      <label htmlFor={option}>{option}</label>
+      <label htmlFor={value}>{value}</label>
     </div>
   );
 };

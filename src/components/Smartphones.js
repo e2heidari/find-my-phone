@@ -12,21 +12,15 @@ function Smartphones() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState([]);
-  const [checked, setChecked] = useState(false);
   const optionComponent = options[current].selections.map((item) => (
     <Option
-      key={options[current].id + item}
+      key={item}
       commonName={options[current].commonName}
-      option={item}
-      checked={checked}
+      value={item}
+      checked={answers[current] === item ? "checked" : null}
       onChange={(e) => {
-        setChecked(true);
         const newAnswers = [...answers];
-        if (checked === false) {
-          newAnswers[current] = e.target.value;
-        } else {
-          e.target.value = newAnswers[current];
-        }
+        newAnswers[current] = e.target.value;
         setAnswers(newAnswers);
       }}
     />
@@ -46,12 +40,13 @@ function Smartphones() {
       setResult(newMainFilter);
     }
   };
+  console.log(result);
 
   return (
     <div className="App">
       <header className="App-header">
         <Question question={questions[current].question} />
-        <form>{optionComponent}</form>
+        <div>{optionComponent}</div>
         <div>
           <button
             onClick={() => (current - 1 >= 0 ? setCurrent(current - 1) : null)}
