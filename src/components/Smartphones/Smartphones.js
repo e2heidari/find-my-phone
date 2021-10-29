@@ -1,11 +1,11 @@
-import "../App.css";
-import questions from "../jsonFiles/question.json";
-import options from "../jsonFiles/options.json";
+import questions from "../../jsonFiles/question.json";
+import options from "../../jsonFiles/options.json";
 import Question from "./Question";
 import Option from "./Option";
 import { useState } from "react";
 import React from "react";
-import phoneData from "../jsonFiles/phoneData.json";
+import phoneData from "../../jsonFiles/phoneData.json";
+import { FormContainer, Form } from "./styled";
 
 function Smartphones() {
   const count = questions.length;
@@ -35,6 +35,7 @@ function Smartphones() {
   //   return previousValue || "";
   // }
   const choose = () => {
+    window.location.replace("http://localhost:3000/result");
     if (answers[0] === "High-range") {
       const newMainFilter = phoneData.filter((goal) => goal.priceRange === "1");
       setResult(newMainFilter);
@@ -42,8 +43,8 @@ function Smartphones() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <FormContainer>
+      <Form>
         <Question question={questions[current].question} />
         <div>{optionComponent}</div>
         <div>
@@ -65,8 +66,8 @@ function Smartphones() {
             <button onClick={choose}>Submit</button>
           )}
         </div>
-      </header>
-    </div>
+      </Form>
+    </FormContainer>
   );
 }
 export default Smartphones;
