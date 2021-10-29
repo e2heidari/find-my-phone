@@ -40,7 +40,6 @@ function Smartphones() {
       setResult(newMainFilter);
     }
   };
-  console.log(result);
 
   return (
     <div className="App">

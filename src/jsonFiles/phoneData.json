@@ -1,5 +1,6 @@
 [
     {
+      "id":"1",
       "priceRange":"1",
       "brandName": "Samsung Galaxy S20 Ultra 5G",
       "OS":"Android",
@@ -16,6 +17,7 @@
       "image": ""
     },
     {
+      "id":"2",
       "priceRange":"1",
       "brandName": "Apple iPhone 12",
       "OS":"iOS",
@@ -32,6 +34,7 @@
       "image": ""
     },
     {
+      "id":"3",
       "priceRange":"1",
       "brandName": "Apple iPhone 12 Pro",
       "OS":"iOS",
@@ -48,6 +51,7 @@
       "image": ""
     },
     {
+      "id":"4",
       "priceRange":"2",
       "brandName": "Apple iPhone 12 mini",
       "OS":"iOS",
