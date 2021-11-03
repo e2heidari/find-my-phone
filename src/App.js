@@ -1,5 +1,6 @@
-import Smartphones from "./components/Smartphones";
+import Smartphones from "./components/Smartphones/Smartphones";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Result from "./components/Result";
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Smartphones</Link>
+              <Link to="/smartphones">Smartphones</Link>
             </li>
             <li>
               <Link to="/cameras">Cameras</Link>
@@ -28,8 +29,11 @@ export default function App() {
           <Route path="/speakers">
             <Speakers />
           </Route>
-          <Route path="/">
+          <Route path="/smartphones">
             <Smartphones />
+          </Route>
+          <Route path="/result">
+            <Result />
           </Route>
         </Switch>
       </div>

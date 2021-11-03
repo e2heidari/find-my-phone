@@ -6,8 +6,10 @@ import { useState } from "react";
 import React from "react";
 import phoneData from "../../jsonFiles/phoneData.json";
 import { FormContainer, Form } from "./styled";
+import { useHistory } from "react-router-dom";
 
 function Smartphones() {
+  const history = useHistory();
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -35,13 +37,19 @@ function Smartphones() {
   //   return previousValue || "";
   // }
   const choose = () => {
-    window.location.replace("http://localhost:3000/result");
     if (answers[0] === "High-range") {
-      const newMainFilter = phoneData.filter((goal) => goal.priceRange === "1");
+      var newMainFilter = phoneData.filter((goal) => goal.priceRange === "1");
       setResult(newMainFilter);
     }
+    console.log(newMainFilter);
+    history.push({
+      pathname: "/result",
+      search: `?idPhone1=${newMainFilter[0].id}&idPhone2=${newMainFilter[1].id}`,
+      state: {
+        result: result,
+      },
+    });
   };
-
   return (
     <FormContainer>
       <Form>
