@@ -13,7 +13,6 @@ function Smartphones() {
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [result, setResult] = useState([]);
   const optionComponent = options[current].selections.map((item) => (
     <Option
       key={item}
@@ -39,14 +38,13 @@ function Smartphones() {
   const choose = () => {
     if (answers[0] === "High-range") {
       var newMainFilter = phoneData.filter((goal) => goal.priceRange === "1");
-      setResult(newMainFilter);
     }
     console.log(newMainFilter);
     history.push({
       pathname: "/result",
       search: `?idPhone1=${newMainFilter[0].id}&idPhone2=${newMainFilter[1].id}`,
       state: {
-        result: result,
+        newMainFilter: newMainFilter,
       },
     });
   };
