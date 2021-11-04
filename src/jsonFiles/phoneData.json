@@ -35,7 +35,7 @@
     },
     {
       "id":"3",
-      "priceRange":"1",
+      "priceRange":"1380",
       "brandName": "Apple iPhone 12 Pro",
       "OS":"iOS",
       "cameraDayScore": "135",
@@ -52,7 +52,7 @@
     },
     {
       "id":"4",
-      "priceRange":"2",
+      "priceRange":"825",
       "brandName": "Apple iPhone 12 mini",
       "OS":"iOS",
       "cameraDayScore": "132",
@@ -60,11 +60,28 @@
       "cameraSelfieScore": "98",
       "cameraVideoScore": "112",
       "cameraZoomScore": "41",
-      "batteryScore": "59",
+      "batteryScore": "69",
       "audioPlaybackQualityScore": "73",
       "audioRecordingQualityScore": "73",
       "displayScore": "85",
       "performanceScore": "589616",
+      "image": ""
+    },
+    {
+      "id":"5",
+      "priceRange":"770",
+      "brandName": "Samsung Galaxy A52 5G",
+      "OS":"Android",
+      "cameraDayScore": "102",
+      "cameraNightScore": "21",
+      "cameraSelfieScore": "",
+      "cameraVideoScore": "90",
+      "cameraZoomScore": "56",
+      "batteryScore": "111",
+      "audioPlaybackQualityScore": "71",
+      "audioRecordingQualityScore": "63",
+      "displayScore": "79",
+      "performanceScore": "386474",
       "image": ""
     }
   ]

@@ -4,6 +4,6 @@ const Result = () => {
   const result = location.state.newMainFilter;
   console.log(result);
 
-  return "Hello word";
+  return "Hello world";
 };
 export default Result;
