@@ -1,3 +1,4 @@
+import "./App.css";
 import Smartphones from "./components/Smartphones/Smartphones";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Result from "./components/Result";
@@ -7,15 +8,21 @@ export default function App() {
     <Router>
       <div>
         <nav>
-          <ul>
+          <ul className="headerContainer">
             <li>
-              <Link to="/smartphones">Smartphones</Link>
+              <Link to="/smartphones" className="option">
+                SMARTPHONES
+              </Link>
             </li>
             <li>
-              <Link to="/cameras">Cameras</Link>
+              <Link to="/cameras" className="option">
+                CAMERAS
+              </Link>
             </li>
             <li>
-              <Link to="/speakers">Speakers</Link>
+              <Link to="/speakers" className="option">
+                SPEAKERS
+              </Link>
             </li>
           </ul>
         </nav>

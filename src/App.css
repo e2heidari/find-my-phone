@@ -1,0 +1,13 @@
+
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.option{
+    font-family: 'Poppins', 'sans-serif';
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
