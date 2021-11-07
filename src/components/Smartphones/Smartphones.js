@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DoneIcon from "@mui/icons-material/Done";
 import smartphonePage from "../../picture of phones/smartphonePage.jpg";
+import RadioGroup from "@mui/material/RadioGroup";
 
 function Smartphones() {
   const history = useHistory();
@@ -60,7 +61,7 @@ function Smartphones() {
       <Form>
         Question {current + 1}
         <Question question={questions[current].question} />
-        <div>{optionComponent}</div>
+        <RadioGroup name="radio-buttons-group">{optionComponent}</RadioGroup>
         <div>
           <Button
             onClick={() => (current - 1 >= 0 ? setCurrent(current - 1) : null)}
