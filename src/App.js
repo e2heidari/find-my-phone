@@ -10,19 +10,13 @@ export default function App() {
         <nav>
           <ul className="headerContainer">
             <li>
-              <Link to="/smartphones" className="option">
-                SMARTPHONES
-              </Link>
+              <Link to="/smartphones">SMARTPHONES</Link>
             </li>
             <li>
-              <Link to="/cameras" className="option">
-                CAMERAS
-              </Link>
+              <Link to="/cameras">CAMERAS</Link>
             </li>
             <li>
-              <Link to="/speakers" className="option">
-                SPEAKERS
-              </Link>
+              <Link to="/speakers">SPEAKERS</Link>
             </li>
           </ul>
         </nav>

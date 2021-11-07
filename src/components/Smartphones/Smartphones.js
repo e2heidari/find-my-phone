@@ -5,8 +5,13 @@ import Option from "./Option";
 import { useState } from "react";
 import React from "react";
 import phoneData from "../../jsonFiles/phoneData.json";
-import { FormContainer, Form } from "./styled";
+import { FormContainer, Form, Image } from "./styled";
 import { useHistory } from "react-router-dom";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Button from "@mui/material/Button";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import DoneIcon from "@mui/icons-material/Done";
+import smartphonePage from "../../picture of phones/smartphonePage.jpg";
 
 function Smartphones() {
   const history = useHistory();
@@ -51,26 +56,33 @@ function Smartphones() {
   };
   return (
     <FormContainer>
+      <Image src={smartphonePage} />
       <Form>
+        Question {current + 1}
         <Question question={questions[current].question} />
         <div>{optionComponent}</div>
         <div>
-          <button
+          <Button
             onClick={() => (current - 1 >= 0 ? setCurrent(current - 1) : null)}
+            variant="outlined"
+            startIcon={<ArrowBackIosIcon />}
           >
             Previous
-          </button>
-          Question {current + 1}
+          </Button>
           {count !== current + 1 ? (
-            <button
+            <Button
               onClick={() =>
                 current + 1 < count ? setCurrent(current + 1) : null
               }
+              variant="outlined"
+              endIcon={<ArrowForwardIosIcon />}
             >
               Next
-            </button>
+            </Button>
           ) : (
-            <button onClick={choose}>Submit</button>
+            <Button onClick={choose} variant="outlined" endIcon={<DoneIcon />}>
+              Submit
+            </Button>
           )}
         </div>
       </Form>

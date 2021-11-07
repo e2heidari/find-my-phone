@@ -4,9 +4,10 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
-.option{
+Link{
     font-family: 'Poppins', 'sans-serif';
     text-decoration: none;
+    font-weight: bold;
 }
 ul{
     list-style-type: none;

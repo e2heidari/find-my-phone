@@ -1,7 +1,7 @@
 [
     {
       "id":"1",
-      "priceRange":"1",
+      "priceRange":"1727",
       "brandName": "Samsung Galaxy S20 Ultra 5G",
       "OS":"Android",
       "cameraDayScore": "128",
@@ -18,7 +18,7 @@
     },
     {
       "id":"2",
-      "priceRange":"1",
+      "priceRange":"1090",
       "brandName": "Apple iPhone 12",
       "OS":"iOS",
       "cameraDayScore": "132",
@@ -35,7 +35,7 @@
     },
     {
       "id":"3",
-      "priceRange":"1380",
+      "priceRange":"1240",
       "brandName": "Apple iPhone 12 Pro",
       "OS":"iOS",
       "cameraDayScore": "135",
@@ -52,7 +52,7 @@
     },
     {
       "id":"4",
-      "priceRange":"825",
+      "priceRange":"970",
       "brandName": "Apple iPhone 12 mini",
       "OS":"iOS",
       "cameraDayScore": "132",
@@ -69,7 +69,7 @@
     },
     {
       "id":"5",
-      "priceRange":"770",
+      "priceRange":"460",
       "brandName": "Samsung Galaxy A52 5G",
       "OS":"Android",
       "cameraDayScore": "102",
