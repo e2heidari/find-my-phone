@@ -4,6 +4,7 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: row;
   text-align: center;
+  align-content: space-between;
   width: 100vw;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -11,7 +12,7 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.div`
-  background-color: #b2ffff;
+  background-color: #caf0f8;
   min-height: 100vh;
   width: 100vw;
   display: flex;
@@ -25,4 +26,8 @@ export const Form = styled.div`
 export const Image = styled.img`
   min-height: 100vh;
   object-fit: cover;
+`;
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `;

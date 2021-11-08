@@ -5,7 +5,7 @@ import Option from "./Option";
 import { useState } from "react";
 import React from "react";
 import phoneData from "../../jsonFiles/phoneData.json";
-import { FormContainer, Form, Image } from "./styled";
+import { FormContainer, Form, Image, ButtonContainer } from "./styled";
 import { useHistory } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Button from "@mui/material/Button";
@@ -44,7 +44,9 @@ function Smartphones() {
   // }
   const choose = () => {
     if (answers[0] === "High-range") {
-      var newMainFilter = phoneData.filter((goal) => goal.priceRange === "1");
+      var newMainFilter = phoneData.filter(
+        (goal) => Number(goal.priceRange) >= 1200
+      );
     }
     console.log(newMainFilter);
     history.push({
@@ -62,11 +64,15 @@ function Smartphones() {
         Question {current + 1}
         <Question question={questions[current].question} />
         <RadioGroup name="radio-buttons-group">{optionComponent}</RadioGroup>
-        <div>
+        <ButtonContainer>
           <Button
             onClick={() => (current - 1 >= 0 ? setCurrent(current - 1) : null)}
             variant="outlined"
             startIcon={<ArrowBackIosIcon />}
+            style={{
+              minWidth: "120px",
+              margin: "10px",
+            }}
           >
             Previous
           </Button>
@@ -77,15 +83,27 @@ function Smartphones() {
               }
               variant="outlined"
               endIcon={<ArrowForwardIosIcon />}
+              style={{
+                minWidth: "120px",
+                margin: "10px",
+              }}
             >
               Next
             </Button>
           ) : (
-            <Button onClick={choose} variant="outlined" endIcon={<DoneIcon />}>
+            <Button
+              onClick={choose}
+              variant="outlined"
+              endIcon={<DoneIcon />}
+              style={{
+                minWidth: "120px",
+                margin: "10px",
+              }}
+            >
               Submit
             </Button>
           )}
-        </div>
+        </ButtonContainer>
       </Form>
     </FormContainer>
   );
