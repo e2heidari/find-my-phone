@@ -44,16 +44,23 @@ function Smartphones() {
   // }
   const choose = () => {
     if (answers[0] === "High-range") {
-      var newMainFilter = phoneData.filter(
+      var phoneFiltered = phoneData.filter(
         (goal) => Number(goal.priceRange) >= 1200
       );
+    } else if (answers[0] === "Mid-range") {
+      phoneFiltered = phoneData.filter(
+        (goal) =>
+          Number(goal.priceRange) < 1200 && Number(goal.priceRange) >= 800
+      );
+    } else {
+      phoneFiltered = phoneData.filter((goal) => Number(goal.priceRange) < 800);
     }
-    console.log(newMainFilter);
+    console.log(phoneFiltered);
     history.push({
       pathname: "/result",
-      search: `?idPhone1=${newMainFilter[0].id}&idPhone2=${newMainFilter[1].id}`,
+      search: `?idPhone1=${phoneFiltered[0].id}&idPhone2=${phoneFiltered[1].id}`,
       state: {
-        newMainFilter: newMainFilter,
+        phoneFiltered: phoneFiltered,
       },
     });
   };
