@@ -11,7 +11,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import DoneIcon from "@mui/icons-material/Done";
-import smartphonePage from "../../picture of phones/smartphonePage.jpg";
+import smartphonePage from "../../pictureOfPhones/smartphonePage.jpg";
 import RadioGroup from "@mui/material/RadioGroup";
 
 function Smartphones() {
@@ -56,6 +56,7 @@ function Smartphones() {
       phoneFiltered = phoneData.filter((goal) => Number(goal.priceRange) < 800);
     }
     console.log(phoneFiltered);
+
     history.push({
       pathname: "/result",
       search: `?idPhone1=${phoneFiltered[0].id}&idPhone2=${phoneFiltered[1].id}`,

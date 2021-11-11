@@ -14,6 +14,13 @@ export const OutcomeContainer = styled.div`
   width: 350px;
   margin: 15px;
 `;
+
+export const Image = styled.img`
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+`;
+
 export const TextBody = styled.div`
   margin: 0 15px;
 `;
