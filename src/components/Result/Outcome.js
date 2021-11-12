@@ -6,13 +6,20 @@ import {
   Price,
   Image,
 } from "./styled";
-import images from "./images";
+import defaultImage from "../../pictureOfPhones/iPhone-12.png";
 const Outcome = ({ result }) => {
+  console.log(
+    "🚀 ~ file: Outcome.js ~ line 13 ~ Outcome ~ result.image",
+    result
+  );
+  const img = result.image
+    ? require("../../pictureOfPhones/" + result.image).default
+    : defaultImage;
+  console.log(img);
   return (
     <OutcomeContainer>
       <div>
-        <Image src={images[result.image]} alt={result.image} />
-        {/* <Image src={product.image || emptyImage} alt={product.name} /> */}
+        <Image src={img} alt={result.brandName} />
       </div>
       <TextBody>
         <Title>{result.brandName}</Title>
