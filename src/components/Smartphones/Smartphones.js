@@ -55,8 +55,52 @@ function Smartphones() {
     } else {
       phoneFiltered = phoneData.filter((goal) => Number(goal.priceRange) < 800);
     }
-    console.log(phoneFiltered);
-
+    if (answers[1] === "Yes") {
+      var pointOfPhones1 = phoneFiltered.map((phone) =>
+        Number(phone.cameraDayScore)
+      );
+    } else {
+      pointOfPhones1 = phoneFiltered.map((phone, idx) => (phone[idx] = 0));
+    }
+    if (answers[2] === "Yes") {
+      var pointOfPhones2 = phoneFiltered.map((phone) =>
+        Number(phone.performanceScore)
+      );
+    } else {
+      pointOfPhones2 = phoneFiltered.map((phone, idx) => (phone[idx] = 0));
+    }
+    if (answers[3] === "Yes") {
+      var pointOfPhones3 = phoneFiltered.map((phone) =>
+        Number(phone.audioPlaybackQualityScore)
+      );
+    } else {
+      pointOfPhones3 = phoneFiltered.map((phone, idx) => (phone[idx] = 0));
+    }
+    if (answers[4] === "Yes") {
+      var pointOfPhones4 = phoneFiltered.map((phone) =>
+        Number(phone.cameraSelfieScore)
+      );
+    } else {
+      pointOfPhones4 = phoneFiltered.map((phone, idx) => (phone[idx] = 0));
+    }
+    const finalPointOfPhones = pointOfPhones1.map((pointOfPhone, idx) => {
+      return (
+        pointOfPhone +
+        pointOfPhones2[idx] +
+        pointOfPhones3[idx] +
+        pointOfPhones4[idx]
+      );
+    });
+    var largestPointOfPhone = 0;
+    for (var i = 0; i < finalPointOfPhones.length; i++) {
+      if (finalPointOfPhones[i] > largestPointOfPhone) {
+        largestPointOfPhone = finalPointOfPhones[i];
+      }
+    }
+    var finalChoose = [
+      phoneFiltered[finalPointOfPhones.indexOf(largestPointOfPhone)],
+    ];
+    console.log(finalChoose);
     history.push({
       pathname: "/result",
       search: `?idPhone1=${phoneFiltered[0].id}&idPhone2=${phoneFiltered[1].id}`,
