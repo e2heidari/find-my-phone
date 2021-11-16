@@ -104,9 +104,6 @@ function Smartphones() {
     history.push({
       pathname: "/result",
       search: `?idPhone1=${phoneFiltered[0].id}&idPhone2=${phoneFiltered[1].id}`,
-      state: {
-        phoneFiltered: phoneFiltered,
-      },
     });
   };
   return (

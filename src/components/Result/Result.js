@@ -4,7 +4,8 @@ import { Container } from "./styled";
 
 const Result = () => {
   const location = useLocation();
-  const results = location.state.phoneFiltered;
+  console.log("🚀 ~ file: Result.js ~ line 7 ~ Result ~ location", location);
+  const results = [];
   const OutcomeComponent = results.map((result) => (
     <Outcome key={result.id} result={result} />
   ));
