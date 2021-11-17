@@ -26,6 +26,8 @@ export const Form = styled.div`
 export const Image = styled.img`
   min-height: 100vh;
   object-fit: cover;
+  @media (max-width: 768px) {
+  }
 `;
 export const ButtonContainer = styled.div`
   display: flex;

@@ -110,7 +110,6 @@ function Smartphones() {
     <FormContainer>
       <Image src={smartphonePage} />
       <Form>
-        Question {current + 1}
         <Question question={questions[current].question} />
         <RadioGroup name="radio-buttons-group">{optionComponent}</RadioGroup>
         <ButtonContainer>
