@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormContainer = styled.div`
+export const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -11,7 +11,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const Form = styled.div`
+export const FormWrapper = styled.div`
   background-color: #caf0f8;
   min-height: 100vh;
   width: 100vw;
@@ -22,6 +22,17 @@ export const Form = styled.div`
   font-size: calc(10px + 2vmin);
   color: #9e606f;
   padding: 10px;
+`;
+export const Form = styled.div`
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 20px 0;
+  border-top: 1px solid lighten($gray, 10%);
+`;
+
+export const RadioGroupDiv = styled.div`
+  position: relative;
 `;
 export const Image = styled.img`
   min-height: 100vh;

@@ -5,7 +5,14 @@ import Option from "./Option";
 import { useState } from "react";
 import React from "react";
 import phoneData from "../../jsonFiles/phoneData.json";
-import { FormContainer, Form, Image, ButtonContainer } from "./styled";
+import {
+  PageContainer,
+  Form,
+  FormWrapper,
+  RadioGroupDiv,
+  Image,
+  ButtonContainer,
+} from "./styled";
 import { useHistory } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Button from "@mui/material/Button";
@@ -93,67 +100,75 @@ function Smartphones() {
     });
     var largestPointOfPhone = 0;
     for (var i = 0; i < finalPointOfPhones.length; i++) {
-      if (finalPointOfPhones[i] > largestPointOfPhone) {
+      if (finalPointOfPhones[i] >= largestPointOfPhone) {
         largestPointOfPhone = finalPointOfPhones[i];
       }
     }
-    var finalChoose = [
-      phoneFiltered[finalPointOfPhones.indexOf(largestPointOfPhone)],
-    ];
+    var finalChoose =
+      phoneFiltered[finalPointOfPhones.indexOf(largestPointOfPhone)];
+
     console.log(finalChoose);
     history.push({
       pathname: "/result",
-      search: `?idPhone1=${phoneFiltered[0].id}&idPhone2=${phoneFiltered[1].id}`,
+      search: `?idPhone=${finalChoose.id}`,
     });
   };
   return (
-    <FormContainer>
+    <PageContainer>
       <Image src={smartphonePage} />
-      <Form>
+      <FormWrapper>
         <Question question={questions[current].question} />
-        <RadioGroup name="radio-buttons-group">{optionComponent}</RadioGroup>
-        <ButtonContainer>
-          <Button
-            onClick={() => (current - 1 >= 0 ? setCurrent(current - 1) : null)}
-            variant="outlined"
-            startIcon={<ArrowBackIosIcon />}
-            style={{
-              minWidth: "120px",
-              margin: "10px",
-            }}
-          >
-            Previous
-          </Button>
-          {count !== current + 1 ? (
+        <Form>
+          <RadioGroupDiv>
+            <RadioGroup name="radio-buttons-group">
+              {optionComponent}
+            </RadioGroup>
+          </RadioGroupDiv>
+          <ButtonContainer>
             <Button
               onClick={() =>
-                current + 1 < count ? setCurrent(current + 1) : null
+                current - 1 >= 0 ? setCurrent(current - 1) : null
               }
               variant="outlined"
-              endIcon={<ArrowForwardIosIcon />}
+              startIcon={<ArrowBackIosIcon />}
               style={{
                 minWidth: "120px",
                 margin: "10px",
               }}
             >
-              Next
+              Previous
             </Button>
-          ) : (
-            <Button
-              onClick={choose}
-              variant="outlined"
-              endIcon={<DoneIcon />}
-              style={{
-                minWidth: "120px",
-                margin: "10px",
-              }}
-            >
-              Submit
-            </Button>
-          )}
-        </ButtonContainer>
-      </Form>
-    </FormContainer>
+            {count !== current + 1 ? (
+              <Button
+                onClick={() =>
+                  current + 1 < count ? setCurrent(current + 1) : null
+                }
+                variant="outlined"
+                endIcon={<ArrowForwardIosIcon />}
+                style={{
+                  minWidth: "120px",
+                  margin: "10px",
+                }}
+              >
+                Next
+              </Button>
+            ) : (
+              <Button
+                onClick={choose}
+                variant="outlined"
+                endIcon={<DoneIcon />}
+                style={{
+                  minWidth: "120px",
+                  margin: "10px",
+                }}
+              >
+                Submit
+              </Button>
+            )}
+          </ButtonContainer>
+        </Form>
+      </FormWrapper>
+    </PageContainer>
   );
 }
 export default Smartphones;
