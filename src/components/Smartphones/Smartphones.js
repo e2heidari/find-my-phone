@@ -2,8 +2,9 @@ import questions from "../../jsonFiles/question.json";
 import options from "../../jsonFiles/options.json";
 import Question from "./Question";
 import Option from "./Option";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
+import axios from "axios";
 import phoneData from "../../jsonFiles/phoneData.json";
 import {
   PageContainer,
@@ -26,6 +27,7 @@ function Smartphones() {
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [phones, setPhones] = useState([]);
   const optionComponent = options[current].selections.map((item) => (
     <Option
       key={item}
@@ -49,13 +51,46 @@ function Smartphones() {
   //   const previousValue = JSON.parse(saved);
   //   return previousValue || "";
   // }
+  useEffect(() => {
+    const callContentful = async () => {
+      const result = await axios.get(
+        process.env.REACT_APP_CONTENTFUL_GRAPHQL_URL +
+          "?access_token=" +
+          process.env.REACT_APP_ACCESS_TOKEN
+      );
+      console.log(result);
+      if (result.status === 200) {
+        setPhones(
+          result.data.items.map((item, idx) => ({
+            id: item.sys.id,
+            brandName: item.fields.brandName,
+            priceRange: item.fields.priceRange,
+            os: item.fields.os,
+            cameraDayScore: item.fields.cameraDayScore,
+            cameraNightScore: item.fields.cameraNightScore,
+            cameraVideoScore: item.fields.cameraVideoScore,
+            cameraZoomScore: item.fields.cameraZoomScore,
+            batteryScore: item.fields.batteryScore,
+            audioPlaybackQualityScore: item.fields.audioPlaybackQualityScore,
+            audioRecordingQualityScore: item.fields.audioRecordingQualityScore,
+            displayScore: item.fields.displayScore,
+            performanceScore: item.fields.performanceScore,
+            image: item.fields.image ? item.image.fields.sys.type : "",
+          }))
+        );
+      } else {
+        console.log("Error in phones request");
+      }
+    };
+    callContentful();
+  }, []);
   const choose = () => {
     if (answers[0] === "High-range") {
-      var phoneFiltered = phoneData.filter(
+      var phoneFiltered = phones.filter(
         (goal) => Number(goal.priceRange) >= 1200
       );
     } else if (answers[0] === "Mid-range") {
-      phoneFiltered = phoneData.filter(
+      phoneFiltered = phones.filter(
         (goal) =>
           Number(goal.priceRange) < 1200 && Number(goal.priceRange) >= 800
       );
