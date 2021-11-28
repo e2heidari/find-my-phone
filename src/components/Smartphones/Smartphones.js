@@ -69,6 +69,7 @@ function Smartphones() {
             cameraNightScore: item.fields.cameraNightScore,
             cameraVideoScore: item.fields.cameraVideoScore,
             cameraZoomScore: item.fields.cameraZoomScore,
+            cameraSelfieScore: item.fields.cameraSelfieScore,
             batteryScore: item.fields.batteryScore,
             audioPlaybackQualityScore: item.fields.audioPlaybackQualityScore,
             audioRecordingQualityScore: item.fields.audioRecordingQualityScore,
@@ -83,7 +84,6 @@ function Smartphones() {
     };
     callContentful();
   }, []);
-  console.log(phones);
   const choose = () => {
     if (answers[0] === "High-range") {
       var phoneFiltered = phones.filter(
@@ -104,6 +104,7 @@ function Smartphones() {
     } else {
       pointOfPhones1 = phoneFiltered.map((phone, idx) => (phone[idx] = 0));
     }
+
     if (answers[2] === "Yes") {
       var pointOfPhones2 = phoneFiltered.map((phone) =>
         Number(phone.performanceScore)
@@ -133,6 +134,7 @@ function Smartphones() {
         pointOfPhones4[idx]
       );
     });
+    console.log(finalPointOfPhones);
     var largestPointOfPhone = 0;
     for (var i = 0; i < finalPointOfPhones.length; i++) {
       if (finalPointOfPhones[i] >= largestPointOfPhone) {
@@ -142,7 +144,6 @@ function Smartphones() {
     var finalChoose =
       phoneFiltered[finalPointOfPhones.indexOf(largestPointOfPhone)];
 
-    console.log(phoneFiltered[finalPointOfPhones.indexOf(largestPointOfPhone)]);
     history.push({
       pathname: "/result",
       search: `?idPhone=${finalChoose.id}`,
