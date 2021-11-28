@@ -18,22 +18,38 @@ export default function App() {
         <div>
           <StyledMenu open={open}>
             <li>
-              <Link to="/home" style={{ textDecoration: "none" }}>
+              <Link
+                to="/home"
+                onClick={() => setOpen(!open)}
+                style={{ textDecoration: "none" }}
+              >
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/smartphones" style={{ textDecoration: "none" }}>
+              <Link
+                to="/smartphones"
+                onClick={() => setOpen(!open)}
+                style={{ textDecoration: "none" }}
+              >
                 SMARTPHONES
               </Link>
             </li>
             <li>
-              <Link to="/cameras" style={{ textDecoration: "none" }}>
+              <Link
+                to="/cameras"
+                onClick={() => setOpen(!open)}
+                style={{ textDecoration: "none" }}
+              >
                 CAMERAS
               </Link>
             </li>
             <li>
-              <Link to="/speakers" style={{ textDecoration: "none" }}>
+              <Link
+                to="/speakers"
+                onClick={() => setOpen(!open)}
+                style={{ textDecoration: "none" }}
+              >
                 SPEAKERS
               </Link>
             </li>

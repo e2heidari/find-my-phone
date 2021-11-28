@@ -5,7 +5,6 @@ import Option from "./Option";
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
-import phoneData from "../../jsonFiles/phoneData.json";
 import {
   PageContainer,
   Form,
@@ -61,7 +60,7 @@ function Smartphones() {
       console.log(result);
       if (result.status === 200) {
         setPhones(
-          result.data.items.map((item, idx) => ({
+          result.data.items.map((item) => ({
             id: item.sys.id,
             brandName: item.fields.brandName,
             priceRange: item.fields.priceRange,
@@ -75,7 +74,7 @@ function Smartphones() {
             audioRecordingQualityScore: item.fields.audioRecordingQualityScore,
             displayScore: item.fields.displayScore,
             performanceScore: item.fields.performanceScore,
-            image: item.fields.image ? item.image.fields.sys.type : "",
+            // image: item.fields.image ? item.image.fields.sys.type : "",
           }))
         );
       } else {
@@ -84,6 +83,7 @@ function Smartphones() {
     };
     callContentful();
   }, []);
+  console.log(phones);
   const choose = () => {
     if (answers[0] === "High-range") {
       var phoneFiltered = phones.filter(
@@ -95,7 +95,7 @@ function Smartphones() {
           Number(goal.priceRange) < 1200 && Number(goal.priceRange) >= 800
       );
     } else {
-      phoneFiltered = phoneData.filter((goal) => Number(goal.priceRange) < 800);
+      phoneFiltered = phones.filter((goal) => Number(goal.priceRange) < 800);
     }
     if (answers[1] === "Yes") {
       var pointOfPhones1 = phoneFiltered.map((phone) =>
@@ -142,10 +142,11 @@ function Smartphones() {
     var finalChoose =
       phoneFiltered[finalPointOfPhones.indexOf(largestPointOfPhone)];
 
-    console.log(finalChoose);
+    console.log(phoneFiltered[finalPointOfPhones.indexOf(largestPointOfPhone)]);
     history.push({
       pathname: "/result",
       search: `?idPhone=${finalChoose.id}`,
+      state: { phones: phones },
     });
   };
   return (

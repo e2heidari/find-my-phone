@@ -8,13 +8,14 @@ const Result = () => {
   var result = {};
   const location = useLocation();
   const parsed = querystring.parse(location.search);
+  const phones = location.state;
   // const result = phoneData.filter(ph=>ph.id===parsed.idPhone);
   for (let i = 0; i < phoneData.length; i++) {
-    if (phoneData[i].id === parsed.idPhone) {
-      result = phoneData[i];
+    if (phones[i].id === parsed.idPhone) {
+      result = phones[i];
     }
   }
-  console.log(phoneData[0]);
+  console.log(phones[0]);
   return (
     <Container>
       <Outcome result={result} />
