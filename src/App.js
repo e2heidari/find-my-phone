@@ -7,6 +7,7 @@ import { theme } from "./theme";
 import { StyledMenu } from "./styled";
 import Burger from "./components/Burger/Burger";
 import React, { useState } from "react";
+import Home from "./components/Home/Home";
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function App() {
           <StyledMenu open={open}>
             <li>
               <Link
-                to="/home"
+                to="/"
                 onClick={() => setOpen(!open)}
                 style={{ textDecoration: "none" }}
               >
@@ -78,9 +79,6 @@ export default function App() {
       </Router>
     </ThemeProvider>
   );
-}
-function Home() {
-  return <h2>Home</h2>;
 }
 
 function Cameras() {
