@@ -82,9 +82,31 @@ export default function App() {
 }
 
 function Cameras() {
-  return <h2>Cameras</h2>;
+  return (
+    <h1
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      COMING SOON...
+    </h1>
+  );
 }
 
 function Speakers() {
-  return <h2>Speakers</h2>;
+  return (
+    <h1
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      COMING SOON...
+    </h1>
+  );
 }

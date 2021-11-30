@@ -40,7 +40,6 @@ function Smartphones() {
       }}
     />
   ));
-  console.log(answers);
   // useEffect(() => {
   //   window.localStorage.setItem(current, JSON.stringify(answers[current]));
   //   console.log(current, answers[current]);
