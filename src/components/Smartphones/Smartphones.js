@@ -155,7 +155,11 @@ function Smartphones() {
       <FormWrapper>
         <Question question={questions[current].question} />
         <Form>
-          <RadioGroupDiv>
+          <RadioGroupDiv
+            style={{
+              height: "120px",
+            }}
+          >
             <RadioGroup name="radio-buttons-group">
               {optionComponent}
             </RadioGroup>

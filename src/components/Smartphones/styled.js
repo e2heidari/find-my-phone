@@ -6,9 +6,6 @@ export const PageContainer = styled.div`
   text-align: center;
   align-content: space-between;
   width: 100vw;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 export const FormWrapper = styled.div`
@@ -22,6 +19,12 @@ export const FormWrapper = styled.div`
   font-size: calc(10px + 2vmin);
   color: #9e606f;
   padding: 10px;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
 export const Form = styled.div`
   position: relative;
@@ -38,6 +41,7 @@ export const Image = styled.img`
   min-height: 100vh;
   object-fit: cover;
   @media (max-width: 768px) {
+    display: none;
   }
 `;
 export const ButtonContainer = styled.div`
