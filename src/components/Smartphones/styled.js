@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 export const PageContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-content: space-between;
-  width: 100vw;
+  :after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 `;
 
 export const FormWrapper = styled.div`
+  float: left;
+  width: 40%;
   background-color: #caf0f8;
   min-height: 100vh;
-  width: 100vw;
+  // width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,6 +40,8 @@ export const RadioGroupDiv = styled.div`
   position: relative;
 `;
 export const Image = styled.img`
+  float: left;
+  width: 60%;
   min-height: 100vh;
   object-fit: cover;
   @media (max-width: 768px) {
@@ -47,4 +51,5 @@ export const Image = styled.img`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin: 30px;
 `;
