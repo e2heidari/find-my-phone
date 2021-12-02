@@ -59,23 +59,28 @@ function Smartphones() {
       console.log(result);
       if (result.status === 200) {
         setPhones(
-          result.data.items.map((item) => ({
-            id: item.sys.id,
-            brandName: item.fields.brandName,
-            priceRange: item.fields.priceRange,
-            os: item.fields.os,
-            cameraDayScore: item.fields.cameraDayScore,
-            cameraNightScore: item.fields.cameraNightScore,
-            cameraVideoScore: item.fields.cameraVideoScore,
-            cameraZoomScore: item.fields.cameraZoomScore,
-            cameraSelfieScore: item.fields.cameraSelfieScore,
-            batteryScore: item.fields.batteryScore,
-            audioPlaybackQualityScore: item.fields.audioPlaybackQualityScore,
-            audioRecordingQualityScore: item.fields.audioRecordingQualityScore,
-            displayScore: item.fields.displayScore,
-            performanceScore: item.fields.performanceScore,
-            // image: item.fields.image ? item.image.fields.sys.type : "",
-          }))
+          result.data.items.map((item) => {
+            return {
+              id: item.sys.id,
+              brandName: item.fields.brandName,
+              priceRange: item.fields.priceRange,
+              os: item.fields.os,
+              cameraDayScore: item.fields.cameraDayScore,
+              cameraNightScore: item.fields.cameraNightScore,
+              cameraVideoScore: item.fields.cameraVideoScore,
+              cameraZoomScore: item.fields.cameraZoomScore,
+              cameraSelfieScore: item.fields.cameraSelfieScore,
+              batteryScore: item.fields.batteryScore,
+              audioPlaybackQualityScore: item.fields.audioPlaybackQualityScore,
+              audioRecordingQualityScore:
+                item.fields.audioRecordingQualityScore,
+              displayScore: item.fields.displayScore,
+              performanceScore: item.fields.performanceScore,
+              image: result.data.includes.Asset.find(
+                (object) => item.fields.image.sys.id === object.sys.id
+              ).fields.file.url,
+            };
+          })
         );
       } else {
         console.log("Error in phones request");

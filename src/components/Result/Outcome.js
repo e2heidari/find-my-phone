@@ -7,15 +7,10 @@ import {
   Value,
   TypeOfValue,
 } from "./styled";
-import defaultImage from "../../pictureOfPhones/iPhone-12.png";
 const Outcome = ({ result }) => {
-  const img = result.image
-    ? require("../../pictureOfPhones/" + result.image).default
-    : defaultImage;
-  console.log(img);
   return (
     <OutcomeContainer>
-      <Image src={img} alt={result.brandName} />
+      <Image src={result.image} alt={result.brandName} />
       <Title>{result.brandName}</Title>
       <FeatureContainer>
         <Circle>
