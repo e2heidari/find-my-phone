@@ -1,10 +1,10 @@
 import Smartphones from "./components/Smartphones/Smartphones";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Result from "./components/Result";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./global";
 import { theme } from "./theme";
-import { StyledMenu } from "./styled";
+import { StyledMenu, Nav, RouterLink } from "./styled";
 import Burger from "./components/Burger/Burger";
 import React, { useState } from "react";
 import Home from "./components/Home/Home";
@@ -16,43 +16,43 @@ export default function App() {
       <Router>
         <Burger open={open} setOpen={setOpen} />
         <GlobalStyles />
-        <div>
+        <Nav>
           <StyledMenu open={open}>
             <li>
-              <Link
+              <RouterLink
                 to="/"
                 onClick={() => setOpen(!open)}
-                style={{ textDecoration: "none" }}
+                // style={linkStyle}
               >
                 HOME
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link
+              <RouterLink
                 to="/smartphones"
                 onClick={() => setOpen(!open)}
-                style={{ textDecoration: "none" }}
+                // style={linkStyle}
               >
                 SMARTPHONES
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link
+              <RouterLink
                 to="/cameras"
                 onClick={() => setOpen(!open)}
-                style={{ textDecoration: "none" }}
+                // style={linkStyle}
               >
                 CAMERAS
-              </Link>
+              </RouterLink>
             </li>
             <li>
-              <Link
+              <RouterLink
                 to="/speakers"
                 onClick={() => setOpen(!open)}
-                style={{ textDecoration: "none" }}
+                // style={linkStyle}
               >
                 SPEAKERS
-              </Link>
+              </RouterLink>
             </li>
           </StyledMenu>
 
@@ -75,7 +75,7 @@ export default function App() {
               <Result />
             </Route>
           </Switch>
-        </div>
+        </Nav>
       </Router>
     </ThemeProvider>
   );
