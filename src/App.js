@@ -4,7 +4,7 @@ import Result from "./components/Result";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./global";
 import { theme } from "./theme";
-import { StyledMenu, Nav, RouterLink } from "./styled";
+import { StyledMenu, Nav, RouterLink, SearchBox } from "./styled";
 import Burger from "./components/Burger/Burger";
 import React, { useState } from "react";
 import Home from "./components/Home/Home";
@@ -13,44 +13,32 @@ export default function App() {
   const [open, setOpen] = useState(false);
   return (
     <ThemeProvider theme={theme}>
+      <GlobalStyles />
       <Router>
         <Burger open={open} setOpen={setOpen} />
-        <GlobalStyles />
         <Nav>
+          <SearchBox>
+            <input type="text" placeholder="Search..." />
+            <button />
+          </SearchBox>
           <StyledMenu open={open}>
             <li>
-              <RouterLink
-                to="/"
-                onClick={() => setOpen(!open)}
-                // style={linkStyle}
-              >
+              <RouterLink to="/" onClick={() => setOpen(!open)}>
                 HOME
               </RouterLink>
             </li>
             <li>
-              <RouterLink
-                to="/smartphones"
-                onClick={() => setOpen(!open)}
-                // style={linkStyle}
-              >
+              <RouterLink to="/smartphones" onClick={() => setOpen(!open)}>
                 SMARTPHONES
               </RouterLink>
             </li>
             <li>
-              <RouterLink
-                to="/cameras"
-                onClick={() => setOpen(!open)}
-                // style={linkStyle}
-              >
+              <RouterLink to="/cameras" onClick={() => setOpen(!open)}>
                 CAMERAS
               </RouterLink>
             </li>
             <li>
-              <RouterLink
-                to="/speakers"
-                onClick={() => setOpen(!open)}
-                // style={linkStyle}
-              >
+              <RouterLink to="/speakers" onClick={() => setOpen(!open)}>
                 SPEAKERS
               </RouterLink>
             </li>
