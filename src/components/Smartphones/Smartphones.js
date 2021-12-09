@@ -2,9 +2,8 @@ import questions from "../../jsonFiles/question.json";
 import options from "../../jsonFiles/options.json";
 import Question from "./Question";
 import Option from "./Option";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import React from "react";
-import axios from "axios";
 import {
   PageContainer,
   Form,
@@ -21,12 +20,11 @@ import DoneIcon from "@mui/icons-material/Done";
 import smartphonePage from "../../pictureOfPhones/smartphonePage.jpg";
 import RadioGroup from "@mui/material/RadioGroup";
 
-function Smartphones() {
+function Smartphones({ phones }) {
   const history = useHistory();
   const count = questions.length;
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [phones, setPhones] = useState([]);
   const optionComponent = options[current].selections.map((item) => (
     <Option
       key={item}
@@ -49,45 +47,6 @@ function Smartphones() {
   //   const previousValue = JSON.parse(saved);
   //   return previousValue || "";
   // }
-  useEffect(() => {
-    const callContentful = async () => {
-      const result = await axios.get(
-        process.env.REACT_APP_CONTENTFUL_GRAPHQL_URL +
-          "?access_token=" +
-          process.env.REACT_APP_ACCESS_TOKEN
-      );
-      console.log(result);
-      if (result.status === 200) {
-        setPhones(
-          result.data.items.map((item) => {
-            return {
-              id: item.sys.id,
-              brandName: item.fields.brandName,
-              priceRange: item.fields.priceRange,
-              os: item.fields.os,
-              cameraDayScore: item.fields.cameraDayScore,
-              cameraNightScore: item.fields.cameraNightScore,
-              cameraVideoScore: item.fields.cameraVideoScore,
-              cameraZoomScore: item.fields.cameraZoomScore,
-              cameraSelfieScore: item.fields.cameraSelfieScore,
-              batteryScore: item.fields.batteryScore,
-              audioPlaybackQualityScore: item.fields.audioPlaybackQualityScore,
-              audioRecordingQualityScore:
-                item.fields.audioRecordingQualityScore,
-              displayScore: item.fields.displayScore,
-              performanceScore: item.fields.performanceScore,
-              image: result.data.includes.Asset.find(
-                (object) => item.fields.image.sys.id === object.sys.id
-              ).fields.file.url,
-            };
-          })
-        );
-      } else {
-        console.log("Error in phones request");
-      }
-    };
-    callContentful();
-  }, []);
   const choose = () => {
     if (answers[0] === "High-range") {
       var phoneFiltered = phones.filter(

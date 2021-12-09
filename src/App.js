@@ -4,23 +4,64 @@ import Result from "./components/Result";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./global";
 import { theme } from "./theme";
-import { StyledMenu, Nav, RouterLink, SearchBox } from "./styled";
+import { StyledMenu, Nav, RouterLink, SeaarchContainer } from "./styled";
 import Burger from "./components/Burger/Burger";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Home from "./components/Home/Home";
+import axios from "axios";
+import Searchbar from "./components/searchbar/Searchbar";
 
 export default function App() {
   const [open, setOpen] = useState(false);
+  const [phones, setPhones] = useState([]);
+  useEffect(() => {
+    const callContentful = async () => {
+      const result = await axios.get(
+        process.env.REACT_APP_CONTENTFUL_GRAPHQL_URL +
+          "?access_token=" +
+          process.env.REACT_APP_ACCESS_TOKEN
+      );
+      console.log(result);
+      if (result.status === 200) {
+        setPhones(
+          result.data.items.map((item) => {
+            return {
+              id: item.sys.id,
+              brandName: item.fields.brandName,
+              priceRange: item.fields.priceRange,
+              os: item.fields.os,
+              cameraDayScore: item.fields.cameraDayScore,
+              cameraNightScore: item.fields.cameraNightScore,
+              cameraVideoScore: item.fields.cameraVideoScore,
+              cameraZoomScore: item.fields.cameraZoomScore,
+              cameraSelfieScore: item.fields.cameraSelfieScore,
+              batteryScore: item.fields.batteryScore,
+              audioPlaybackQualityScore: item.fields.audioPlaybackQualityScore,
+              audioRecordingQualityScore:
+                item.fields.audioRecordingQualityScore,
+              displayScore: item.fields.displayScore,
+              performanceScore: item.fields.performanceScore,
+              image: result.data.includes.Asset.find(
+                (object) => item.fields.image.sys.id === object.sys.id
+              ).fields.file.url,
+            };
+          })
+        );
+      } else {
+        console.log("Error in phones request");
+      }
+    };
+    callContentful();
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Router>
         <Burger open={open} setOpen={setOpen} />
         <Nav>
-          <SearchBox>
-            <input type="text" placeholder="Search..." />
-            <button />
-          </SearchBox>
+          <SeaarchContainer>
+            <Searchbar phones={phones} />
+          </SeaarchContainer>
           <StyledMenu open={open}>
             <li>
               <RouterLink to="/" onClick={() => setOpen(!open)}>
@@ -57,10 +98,10 @@ export default function App() {
               <Speakers />
             </Route>
             <Route path="/smartphones">
-              <Smartphones />
+              <Smartphones phones={phones} />
             </Route>
             <Route path="/result">
-              <Result />
+              <Result phones={phones} />
             </Route>
           </Switch>
         </Nav>
