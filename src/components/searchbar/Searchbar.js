@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { SearchBox } from "./styled";
+import { useHistory } from "react-router-dom";
 
 const Searchbar = ({ phones }) => {
+  const history = useHistory();
   const [active, setActive] = useState(0);
   const [filtered, setFiltered] = useState([]);
   const [isShow, setIsShow] = useState(false);
@@ -18,12 +20,6 @@ const Searchbar = ({ phones }) => {
     setIsShow(true);
     setInput(e.currentTarget.value);
   };
-  const onClick = (e) => {
-    setActive(0);
-    setFiltered([]);
-    setIsShow(false);
-    setInput(e.currentTarget.innerText);
-  };
   const onKeyDown = (e) => {
     if (e.keyCode === 13) {
       // enter key
@@ -38,34 +34,21 @@ const Searchbar = ({ phones }) => {
       return active - 1 === filtered.length ? null : setActive(active + 1);
     }
   };
-  const renderSearchbar = () => {
-    if (isShow && input) {
-      if (filtered.length) {
-        return (
-          <ul className="autocomplete">
-            {filtered.map((phonesName, index) => {
-              let className;
-              if (index === active) {
-                className = "active";
-              }
-              return (
-                <li className={className} key={phonesName} onClick={onClick}>
-                  {phonesName}
-                </li>
-              );
-            })}
-          </ul>
-        );
-      } else {
-        return (
-          <div className="no-autocomplete">
-            <em>Not found</em>
-          </div>
-        );
-      }
-    }
-    return <></>;
+  const onClick = (e) => {
+    const phoneSlected = e.currentTarget.innerText;
+    setActive(0);
+    setFiltered([]);
+    setIsShow(false);
+    setInput(phoneSlected);
+    const finalChoose = phones.filter(
+      (phone) => phone.brandName === phoneSlected
+    );
+    history.push({
+      pathname: "/result",
+      search: `?idPhone=${finalChoose[0].id}`,
+    });
   };
+
   return (
     <SearchBox>
       <input
@@ -76,7 +59,25 @@ const Searchbar = ({ phones }) => {
         value={input}
       />
       <button />
-      <div>{renderSearchbar()}</div>
+      <div>
+        {isShow && input ? (
+          filtered.length ? (
+            <ul className="autocomplete">
+              {filtered.map((phonesName) => {
+                return (
+                  <li key={phonesName} onClick={onClick}>
+                    {phonesName}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <div className="no-autocomplete">
+              <em>Not found</em>
+            </div>
+          )
+        ) : null}
+      </div>
     </SearchBox>
   );
 };

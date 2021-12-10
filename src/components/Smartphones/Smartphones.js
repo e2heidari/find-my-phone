@@ -110,7 +110,6 @@ function Smartphones({ phones }) {
     history.push({
       pathname: "/result",
       search: `?idPhone=${finalChoose.id}`,
-      state: { phones: phones },
     });
   };
   return (
