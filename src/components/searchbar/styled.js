@@ -121,11 +121,16 @@ export const SearchBox = styled.div`
       transition: all 0.5s;
     }
   }
-  div {
-    position: absolute;
-    top: 50%;
-    left: -150%;
-    padding: 8px;
-    width: 300px;
+`;
+export const ListContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: -150%;
+  padding: 8px;
+  width: 300px;
+  ul {
+    li {
+      text-decoration: none;
+    }
   }
 `;

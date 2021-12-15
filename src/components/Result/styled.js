@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: 0;
   padding: 0;
-  width: 100vh;
+  width: 100vw;
   hight: 100vh;
 `;
 export const OutcomeContainer = styled.div`
@@ -23,6 +23,22 @@ export const OutcomeContainer = styled.div`
   border: 1px solid gray;
   border-radius: 5px;
   z-index: -20;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    display: grid;
+    width: 250px;
+    hight: 600px;
+    margin: 0px;
+    grid-template-columns: 80px 40px auto 50px;
+    grid-template-rows: 35px 60px auto;
+    align-items: center;
+    padding: 2px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: white;
+  }
 `;
 
 export const Image = styled.img`
@@ -31,6 +47,13 @@ export const Image = styled.img`
   width: 150px;
   height: 150px;
   object-fit: cover;
+  @media (max-width: 768px) {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+  }
 `;
 
 export const Title = styled.h3`
@@ -39,12 +62,26 @@ export const Title = styled.h3`
   grid-row: 1 / 2;
   justify-self: center;
   font-size: 24px;
+  @media (max-width: 768px) {
+    color: black;
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+    align-items: center;
+    font-size: 10px;
+  }
 `;
 
 export const FeatureContainer = styled.div`
   grid-column: 1 / span 4;
   grid-row: 2 / 3;
   justify-self: center;
+  @media (max-width: 768px) {
+    position: relative;
+    top -10px;
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 1;
+    justify-item: center;
+  }
 `;
 
 export const TypeOfValue = styled.span`
@@ -56,6 +93,11 @@ export const TypeOfValue = styled.span`
   text-transform: uppercase;
   color: #888;
   font-weight: 700;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 22.5px;
+    left: -5px;
+  }
 `;
 export const Value = styled.h1`
   color: black;
@@ -64,6 +106,10 @@ export const Value = styled.h1`
   right: 0;
   top: 10px;
   font-size: 14px;
+  @media (max-width: 768px) {
+    position: absolute;
+    left: 110px;
+  }
 `;
 export const Circle = styled.div`
   position: relative;
@@ -79,4 +125,11 @@ export const Circle = styled.div`
     inset 0 3px 5px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-bottom-color: #fff;
+  @media (max-width: 768px) {
+    border-radius: none;
+    border: 0px;
+    box-shadow: none;
+    width: 100px;
+    height: 20px;
+  }
 `;

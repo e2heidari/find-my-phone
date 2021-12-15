@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SearchBox } from "./styled";
+import { SearchBox, ListContainer } from "./styled";
 import { useHistory } from "react-router-dom";
 
 const Searchbar = ({ phones }) => {
@@ -53,16 +53,16 @@ const Searchbar = ({ phones }) => {
     <SearchBox>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search your phone..."
         onChange={onChange}
         onKeyDown={onKeyDown}
         value={input}
       />
       <button />
-      <div>
+      <ListContainer>
         {isShow && input ? (
           filtered.length ? (
-            <ul className="autocomplete">
+            <ul>
               {filtered.map((phonesName) => {
                 return (
                   <li key={phonesName} onClick={onClick}>
@@ -72,12 +72,12 @@ const Searchbar = ({ phones }) => {
               })}
             </ul>
           ) : (
-            <div className="no-autocomplete">
+            <div>
               <em>Not found</em>
             </div>
           )
         ) : null}
-      </div>
+      </ListContainer>
     </SearchBox>
   );
 };

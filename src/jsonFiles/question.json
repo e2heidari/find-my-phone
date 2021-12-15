@@ -1,8 +1,8 @@
 [
     { "question": "What's your next smartphone price range?" },
-    { "question": "Are you fan of social media?" },
-    { "question": "Are you fan of games on your phone?" },
-    {"question":"Are you fan of music on your phone?"},
+    { "question": "Are you a fan of social media?" },
+    { "question": "Are you a fan of games on your phone?" },
+    {"question":"Are you a fan of music on your phone?"},
     {"question":"Is selfie camera so important for you?"}
 
   ]
