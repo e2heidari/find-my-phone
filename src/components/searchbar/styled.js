@@ -64,14 +64,14 @@ export const SearchBox = styled.div`
       font-weight: bolder;
     }
     ul {
-      border: 1px solid #999;
-      border-top-width: 0;
-      list-style: none;
-      margin-top: 0;
-      max-height: 143px;
-      overflow-y: auto;
-      padding-left: 0;
-      width: calc(300px + 1rem);
+      // border: 1px solid #999;
+      // border-top-width: 0;
+      // list-style: none;
+      // margin-top: 0;
+      // max-height: 143px;
+      // overflow-y: auto;
+      // padding-left: 0;
+      // width: calc(300px + 1rem);
     }
   }
   button {

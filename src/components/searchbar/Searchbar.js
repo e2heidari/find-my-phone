@@ -43,6 +43,7 @@ const Searchbar = ({ phones }) => {
     const finalChoose = phones.filter(
       (phone) => phone.brandName === phoneSlected
     );
+    console.log(finalChoose);
     history.push({
       pathname: "/result",
       search: `?idPhone=${finalChoose[0].id}`,

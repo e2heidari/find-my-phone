@@ -67,7 +67,7 @@ export const Title = styled.h3`
     grid-column: 1 / span 4;
     grid-row: 1 / span 1;
     align-items: center;
-    font-size: 10px;
+    font-size: 12px;
   }
 `;
 
@@ -97,6 +97,7 @@ export const TypeOfValue = styled.span`
     position: absolute;
     top: 22.5px;
     left: -5px;
+    font-size: 12px;
   }
 `;
 export const Value = styled.h1`
@@ -108,7 +109,8 @@ export const Value = styled.h1`
   font-size: 14px;
   @media (max-width: 768px) {
     position: absolute;
-    left: 110px;
+    left: 130px;
+    top: 12px;
   }
 `;
 export const Circle = styled.div`
@@ -129,7 +131,7 @@ export const Circle = styled.div`
     border-radius: none;
     border: 0px;
     box-shadow: none;
-    width: 100px;
+    width: 120px;
     height: 20px;
   }
 `;
