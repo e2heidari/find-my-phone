@@ -6,11 +6,32 @@ import {
   Circle,
   Value,
   TypeOfValue,
+  CompareButton,
 } from "./styled";
+import { useHistory } from "react-router-dom";
+
 const Outcome = ({ result }) => {
+  const history = useHistory();
+  const ComparePhones = () => {
+    history.push({
+      pathname: "/compare",
+      search: `?idPhone=${result.id}`,
+    });
+  };
   return (
     <OutcomeContainer>
       <Image src={result.image} alt={result.brandName} />
+      <CompareButton
+        onClick={ComparePhones}
+        variant="outlined"
+        // endIcon={<DoneIcon />}
+        style={{
+          minWidth: "120px",
+          margin: "10px",
+        }}
+      >
+        Compare
+      </CompareButton>
       <Title>{result.brandName}</Title>
       <FeatureContainer>
         <Circle>

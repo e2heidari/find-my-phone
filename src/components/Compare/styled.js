@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Button from "@mui/material/Button";
 
 export const Container = styled.div`
   margin: 0;
@@ -136,7 +135,7 @@ export const Circle = styled.div`
     height: 20px;
   }
 `;
-export const CompareButton = styled(Button)`
+export const CompareButton = styled.button`
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
 `;

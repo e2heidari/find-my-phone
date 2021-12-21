@@ -9,7 +9,8 @@ import Burger from "./components/Burger/Burger";
 import React, { useState, useEffect } from "react";
 import Home from "./components/Home/Home";
 import axios from "axios";
-import Searchbar from "./components/searchbar/Searchbar";
+import Searchbar from "./components/Searchbar/Searchbar";
+import Compare from "./components/Compare";
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -102,6 +103,9 @@ export default function App() {
             </Route>
             <Route path="/result">
               <Result phones={phones} />
+            </Route>
+            <Route path="/compare">
+              <Compare phones={phones} />
             </Route>
           </Switch>
         </Nav>
