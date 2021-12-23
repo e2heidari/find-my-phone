@@ -139,3 +139,8 @@ export const CompareButton = styled.button`
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
 `;
+export const Comparepart = styled.div`
+  position: absolute;
+  top: 75%;
+  left: 11%;
+`;

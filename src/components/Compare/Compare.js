@@ -9,7 +9,9 @@ import {
   Value,
   TypeOfValue,
   Container,
+  Comparepart,
 } from "./styled";
+import Comparephone from "./Comparephone";
 
 const Compare = ({ phones }) => {
   var result = {};
@@ -78,7 +80,9 @@ const Compare = ({ phones }) => {
           </Circle>
         </FeatureContainer>
       </OutcomeContainer>
-      {/* <Comparephone /> */}
+      <Comparepart>
+        <Comparephone phones={phones} result1={result.id} />
+      </Comparepart>
     </Container>
   );
 };
