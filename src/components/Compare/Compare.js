@@ -15,6 +15,7 @@ import Comparephone from "./Comparephone";
 
 const Compare = ({ phones }) => {
   var result = {};
+  var secondResult = {};
   const location = useLocation();
   const parsed = querystring.parse(location.search);
   // const result = phones.filter((ph) => ph.id === parsed.idPhone);
@@ -23,7 +24,11 @@ const Compare = ({ phones }) => {
       result = phones[i];
     }
   }
-  console.log(result);
+  for (let i = 0; i < phones.length; i++) {
+    if (phones[i].id === parsed.idPhone2) {
+      secondResult = phones[i];
+    }
+  }
   return (
     <Container>
       <OutcomeContainer>
@@ -81,7 +86,11 @@ const Compare = ({ phones }) => {
         </FeatureContainer>
       </OutcomeContainer>
       <Comparepart>
-        <Comparephone phones={phones} result1={result.id} />
+        <Comparephone
+          phones={phones}
+          result1={result.id}
+          secondResult={secondResult}
+        />
       </Comparepart>
     </Container>
   );

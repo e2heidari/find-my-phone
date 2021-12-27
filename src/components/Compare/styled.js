@@ -141,6 +141,11 @@ export const CompareButton = styled.button`
 `;
 export const Comparepart = styled.div`
   position: absolute;
-  top: 75%;
-  left: 11%;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+export const CompareAutocomplete = styled.div`
+  top: -25%;
+  left: 0;
 `;
