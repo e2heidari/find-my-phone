@@ -4,11 +4,11 @@ export const Container = styled.div`
   margin: 0;
   padding: 0;
   width: 100vw;
-  hight: 100vh;
+  hight: 110vh;
 `;
 export const OutcomeContainer = styled.div`
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -141,11 +141,13 @@ export const CompareButton = styled.button`
 `;
 export const Comparepart = styled.div`
   position: absolute;
-  top: 110%;
+  top: 98%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
 export const CompareAutocomplete = styled.div`
-  top: -25%;
-  left: 0;
+  overflow: visible;
+  position: absolute;
+  top: -200px;
+  left: -500px;
 `;

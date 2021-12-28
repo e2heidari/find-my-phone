@@ -11,15 +11,14 @@ export const PageContainer = styled.div`
 export const FormWrapper = styled.div`
   float: left;
   width: 40%;
-  background-color: #caf0f8;
+  background-color: white;
   min-height: 100vh;
-  // width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #9e606f;
+  color: black;
   padding: 10px;
   @media (max-width: 768px) {
     position: absolute;
