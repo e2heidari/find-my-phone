@@ -26,9 +26,9 @@ export const OutcomeContainer = styled.div`
   @media (max-width: 768px) {
     position: absolute;
     top: 55%;
-    left: 50%;
+    left: 20%;
     display: grid;
-    width: 250px;
+    width: 193px;
     hight: 600px;
     margin: 0px;
     grid-template-columns: 80px 40px auto 50px;
@@ -138,16 +138,26 @@ export const Circle = styled.div`
 export const CompareButton = styled.button`
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
+  }
 `;
 export const Comparepart = styled.div`
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 55%;
+    left: 60%;
+  }
 `;
 export const CompareAutocomplete = styled.div`
   overflow: visible;
   position: absolute;
   top: -200px;
   left: -500px;
+  @media (max-width: 768px) {
+    position: absolute;
+    top: -315px;
+    left: -123px;
 `;

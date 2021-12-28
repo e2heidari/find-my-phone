@@ -139,4 +139,8 @@ export const Circle = styled.div`
 export const CompareButton = styled(Button)`
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
+  @media (max-width: 768px) {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
 `;
