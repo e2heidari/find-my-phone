@@ -141,7 +141,7 @@ export const CompareButton = styled.button`
 `;
 export const Comparepart = styled.div`
   position: absolute;
-  top: 98%;
+  top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
