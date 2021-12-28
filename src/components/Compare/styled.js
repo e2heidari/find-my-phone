@@ -26,7 +26,7 @@ export const OutcomeContainer = styled.div`
   @media (max-width: 768px) {
     position: absolute;
     top: 55%;
-    left: 20%;
+    left: 25%;
     display: grid;
     width: 193px;
     hight: 600px;
@@ -148,7 +148,7 @@ export const Comparepart = styled.div`
   @media (max-width: 768px) {
     position: absolute;
     top: 55%;
-    left: 60%;
+    left: 75%;
   }
 `;
 export const CompareAutocomplete = styled.div`
