@@ -14,32 +14,41 @@ import {
 import { useHistory } from "react-router-dom";
 
 const ComparePhone = ({ phones, result1, secondResult }) => {
+  const [value, setValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   var secondresult = [];
   var result2 = {};
   const [showup, setShowup] = useState(false);
   const history = useHistory();
   const phonesName = phones.map((phone) => phone.brandName);
-  const selectPhone = (e) => {
+  const selectPhone = (e, newValue) => {
+    setValue(newValue);
     setShowup(true);
-    const phoneSlected = e.currentTarget.innerText;
-    secondresult = phones.filter((phone) => phone.brandName === phoneSlected);
-    // console.log(result2.id);
-    for (let i = 0; i < phones.length; i++) {
-      if (phones[i].id === secondresult[0].id) {
-        result2 = phones[i];
+    secondresult = phones.filter((phone) => phone.brandName === newValue);
+    if (newValue !== null) {
+      for (let i = 0; i < phones.length; i++) {
+        if (phones[i].id === secondresult[0].id) {
+          result2 = phones[i];
+        }
       }
+      history.push({
+        pathname: "/compare",
+        search: `?idPhone=${result1}&idPhone2=${result2.id}`,
+      });
+    } else {
+      setValue("");
     }
-    console.log(result2);
-    history.push({
-      pathname: "/compare",
-      search: `?idPhone=${result1}&idPhone2=${result2.id}`,
-    });
   };
   return (
     <div>
       <CompareAutocomplete>
         <Autocomplete
-          onInputChange={selectPhone}
+          value={value}
+          inputValue={inputValue}
+          onChange={selectPhone}
+          onInputChange={(event, newInputValue) => {
+            setInputValue(newInputValue);
+          }}
           disablePortal
           id="combo-box-demo"
           options={phonesName}
