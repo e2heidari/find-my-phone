@@ -145,7 +145,7 @@ export const CompareButton = styled.button`
 `;
 export const Comparepart = styled.div`
   position: absolute;
-  top: 100%;
+  top: 105%;
   left: 50%;
   transform: translate(-50%, -50%);
   @media (max-width: 768px) {
@@ -157,7 +157,7 @@ export const Comparepart = styled.div`
 export const CompareAutocomplete = styled.div`
   overflow: visible;
   position: absolute;
-  top: -175px;
+  top: -200px;
   left: -500px;
   @media (max-width: 768px) {
     position: absolute;
