@@ -7,6 +7,10 @@ export const Container = styled.div`
   width: 100vw;
   hight: 100vh;
 `;
+export const Noticetext = styled.h2`
+  text-align: center;
+`;
+
 export const OutcomeContainer = styled.div`
   position: absolute;
   top: 50%;

@@ -10,6 +10,7 @@ import {
   TypeOfValue,
   Container,
   Comparepart,
+  Noticetext,
 } from "./styled";
 import Comparephone from "./Comparephone";
 
@@ -31,6 +32,10 @@ const Compare = ({ phones }) => {
   }
   return (
     <Container>
+      <Noticetext>
+        All data comes from several trusted websites, and a higher number means
+        better value
+      </Noticetext>
       <OutcomeContainer>
         <Image src={result.image} alt={result.brandName} />
         <Title>{result.brandName}</Title>

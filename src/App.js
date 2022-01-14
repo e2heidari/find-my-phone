@@ -22,7 +22,6 @@ export default function App() {
           "?access_token=" +
           process.env.REACT_APP_ACCESS_TOKEN
       );
-      console.log(result);
       if (result.status === 200) {
         setPhones(
           result.data.items.map((item) => {

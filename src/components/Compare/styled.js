@@ -6,9 +6,12 @@ export const Container = styled.div`
   width: 100vw;
   hight: 110vh;
 `;
+export const Noticetext = styled.h2`
+  text-align: center;
+`;
 export const OutcomeContainer = styled.div`
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -154,7 +157,7 @@ export const Comparepart = styled.div`
 export const CompareAutocomplete = styled.div`
   overflow: visible;
   position: absolute;
-  top: -200px;
+  top: -175px;
   left: -500px;
   @media (max-width: 768px) {
     position: absolute;

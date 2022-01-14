@@ -1,6 +1,6 @@
 import Outcome from "./Outcome";
 import { useLocation } from "react-router-dom";
-import { Container } from "./styled";
+import { Container, Noticetext } from "./styled";
 import querystring from "query-string";
 
 const Result = ({ phones }) => {
@@ -16,6 +16,10 @@ const Result = ({ phones }) => {
   console.log(result);
   return (
     <Container>
+      <Noticetext>
+        All data comes from several trusted websites, and a higher number means
+        better value
+      </Noticetext>
       <Outcome result={result} />
     </Container>
   );
